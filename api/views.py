@@ -56,6 +56,12 @@ class ProductViewset(ModelViewSet):
     permission_classes = (IsAuthenticated,)
     authentication_classes= (SessionAuthentication, TokenAuthentication)
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
+
 class UserViewset(ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
