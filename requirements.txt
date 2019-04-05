@@ -5,6 +5,7 @@ django-filter==2.1.0
 djangorestframework==3.9.2
 gunicorn==19.9.0
 pipenv==2018.11.26
+psycopg2==2.8
 pytz==2018.9
 six==1.12.0
 sqlparse==0.3.0
